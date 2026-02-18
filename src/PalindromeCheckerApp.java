@@ -61,5 +61,19 @@ public class PalindromeCheckerApp {
             }
         }
         System.out.println("UC6: Palindrome check: " + isUc6Palindrome + " (Queue + Stack)");
+
+        //UC:7
+        Deque<Character> deque = new LinkedList<>();
+        for (char c : input.toCharArray()) {
+            deque.addLast(c);
+        }
+        boolean isDequePalindrome = true;
+        while (deque.size() > 1) {
+            if (deque.removeFirst() != deque.removeLast()) {
+                isDequePalindrome = false;
+                break;
+            }
+        }
+        System.out.println("UC7: Palindrome check: " + isDequePalindrome + " (Deque)");
     }
 }
