@@ -1,3 +1,4 @@
+import java.util.*;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
@@ -31,5 +32,18 @@ public class PalindromeCheckerApp {
             }
         }
         System.out.println("UC4: Palindrome check: " + isPalindrome + " (Char Array)");
+
+        //UC5:
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
+
+        StringBuilder res = new StringBuilder();
+        while (!stack.isEmpty()) {
+            res.append(stack.pop());
+        }
+
+        System.out.println("UC5: " + input.equals(res.toString()) + " (Stack)");
     }
 }
