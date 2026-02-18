@@ -45,5 +45,21 @@ public class PalindromeCheckerApp {
         }
 
         System.out.println("UC5: " + input.equals(res.toString()) + " (Stack)");
+
+        //UC:6
+        Queue<Character> q = new LinkedList<>();
+        Stack<Character> s = new Stack<>();
+        for (char c : input.toCharArray()) {
+            q.add(c);
+            s.push(c);
+        }
+        boolean isUc6Palindrome = true;
+        while (!q.isEmpty()) {
+            if (q.remove() != s.pop()) {
+                isUc6Palindrome = false;
+                break;
+            }
+        }
+        System.out.println("UC6: Palindrome check: " + isUc6Palindrome + " (Queue + Stack)");
     }
 }
