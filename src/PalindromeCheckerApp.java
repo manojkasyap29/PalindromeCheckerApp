@@ -98,10 +98,14 @@ public class PalindromeCheckerApp {
         // UC:11
         PalindromeService service = new PalindromeService();
         System.out.println("UC11: OOP Service check: " + service.check(input));
+
+        // UC:12
+        PalindromeStrategy strategy = (str) -> new StringBuilder(str).reverse().toString().equals(str);
+        System.out.println("UC12: Strategy Pattern check: " + strategy.isValid(input));
     }
 
 
-    //UC8
+    // UC8
     static class ListNode {
         char val;
         ListNode next;
@@ -123,6 +127,11 @@ public class PalindromeCheckerApp {
         public boolean check(String s) {
             return s.equalsIgnoreCase(new StringBuilder(s).reverse().toString());
         }
+    }
+
+    // UC12
+    interface PalindromeStrategy {
+        boolean isValid(String s);
     }
 }
 
