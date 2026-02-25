@@ -84,15 +84,27 @@ public class PalindromeCheckerApp {
             currentUC8 = currentUC8.next;
         }
         System.out.println("UC8: Singly Linked List created for node traversal");
+
+        // UC9: Recursive Palindrome Checker
+        boolean isUc9Palindrome = isRecursive(input, 0, input.length() - 1);
+        System.out.println("UC9: Recursive check: " + isUc9Palindrome);
+    }
+
+    static class ListNode {
+        char val;
+        ListNode next;
+
+        ListNode(char val) {
+            this.val = val;
+        }
+    }
+
+    // UC9 Helper: Must be INSIDE the class, but OUTSIDE main
+    public static boolean isRecursive(String s, int start, int end) {
+        if (start >= end) return true;
+        if (s.charAt(start) != s.charAt(end)) return false;
+        return isRecursive(s, start + 1, end - 1);
     }
 }
 
 
-
-class ListNode {
-    char val;
-    ListNode next;
-    ListNode(char val) {
-        this.val = val;
-    }
-}
