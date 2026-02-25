@@ -88,8 +88,20 @@ public class PalindromeCheckerApp {
         // UC9: Recursive Palindrome Checker
         boolean isUc9Palindrome = isRecursive(input, 0, input.length() - 1);
         System.out.println("UC9: Recursive check: " + isUc9Palindrome);
+
+        // UC:10
+        String uc10Input = "Race Car";
+        String normalized = uc10Input.replaceAll("\\s+", "").toLowerCase();
+        boolean isUc10Palindrome = new StringBuilder(normalized).reverse().toString().equals(normalized);
+        System.out.println("UC10: Normalized '" + uc10Input + "' result: " + isUc10Palindrome);
+
+        // UC:11
+        PalindromeService service = new PalindromeService();
+        System.out.println("UC11: OOP Service check: " + service.check(input));
     }
 
+
+    //UC8
     static class ListNode {
         char val;
         ListNode next;
@@ -99,11 +111,18 @@ public class PalindromeCheckerApp {
         }
     }
 
-    // UC9 Helper: Must be INSIDE the class, but OUTSIDE main
+    // UC9
     public static boolean isRecursive(String s, int start, int end) {
         if (start >= end) return true;
         if (s.charAt(start) != s.charAt(end)) return false;
         return isRecursive(s, start + 1, end - 1);
+    }
+
+    // UC11
+    static class PalindromeService {
+        public boolean check(String s) {
+            return s.equalsIgnoreCase(new StringBuilder(s).reverse().toString());
+        }
     }
 }
 
