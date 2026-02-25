@@ -102,6 +102,12 @@ public class PalindromeCheckerApp {
         // UC:12
         PalindromeStrategy strategy = (str) -> new StringBuilder(str).reverse().toString().equals(str);
         System.out.println("UC12: Strategy Pattern check: " + strategy.isValid(input));
+
+        // UC:13
+        long startTime = System.nanoTime();
+        new StringBuilder(input).reverse().toString().equals(input);
+        long endTime = System.nanoTime();
+        System.out.println("UC13: Execution time: " + (endTime - startTime) + " ns");
     }
 
 
