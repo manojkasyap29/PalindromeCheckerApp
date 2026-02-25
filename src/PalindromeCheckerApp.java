@@ -75,5 +75,24 @@ public class PalindromeCheckerApp {
             }
         }
         System.out.println("UC7: Palindrome check: " + isDequePalindrome + " (Deque)");
+
+        // UC8:8
+        ListNode head = new ListNode(input.charAt(0));
+        ListNode currentUC8 = head;
+        for (int i = 1; i < input.length(); i++) {
+            currentUC8.next = new ListNode(input.charAt(i));
+            currentUC8 = currentUC8.next;
+        }
+        System.out.println("UC8: Singly Linked List created for node traversal");
+    }
+}
+
+
+
+class ListNode {
+    char val;
+    ListNode next;
+    ListNode(char val) {
+        this.val = val;
     }
 }
