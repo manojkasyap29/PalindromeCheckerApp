@@ -76,7 +76,7 @@ public class PalindromeCheckerApp {
         }
         System.out.println("UC7: Palindrome check: " + isDequePalindrome + " (Deque)");
 
-        // UC8:8
+        // UC:8
         ListNode head = new ListNode(input.charAt(0));
         ListNode currentUC8 = head;
         for (int i = 1; i < input.length(); i++) {
@@ -85,11 +85,18 @@ public class PalindromeCheckerApp {
         }
         System.out.println("UC8: Singly Linked List created for node traversal");
 
-        // UC9: Recursive Palindrome Checker
+        // UC:9
         boolean isUc9Palindrome = isRecursive(input, 0, input.length() - 1);
         System.out.println("UC9: Recursive check: " + isUc9Palindrome);
+
+        // UC:10
+        String uc10Input = "Race Car"; // Using a unique name to avoid re-definition error
+        String normalized = uc10Input.replaceAll("\\s+", "").toLowerCase();
+        boolean isUc10Palindrome = new StringBuilder(normalized).reverse().toString().equals(normalized);
+        System.out.println("UC10: Normalized '" + uc10Input + "' result: " + isUc10Palindrome);
     }
 
+    // UC8
     static class ListNode {
         char val;
         ListNode next;
@@ -99,7 +106,7 @@ public class PalindromeCheckerApp {
         }
     }
 
-    // UC9 Helper: Must be INSIDE the class, but OUTSIDE main
+    // UC9
     public static boolean isRecursive(String s, int start, int end) {
         if (start >= end) return true;
         if (s.charAt(start) != s.charAt(end)) return false;
